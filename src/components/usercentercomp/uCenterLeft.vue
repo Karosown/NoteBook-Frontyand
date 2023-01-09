@@ -7,8 +7,10 @@
           class="el-menu-vertical-usercenter"
           style="padding-top: 20px"
           @open="handleOpen"
-          @close="handleClose" :router="true">
-        <div class="userCenterLogo">
+          @close="handleClose" :router="true"
+          :collapse="shouNa"
+      >
+        <div class="userCenterLogo" v-show="!shouNa">
           <el-avatar :size="100" :src="loginStatus.userAvatar"></el-avatar>
           <span>{{loginStatus.userName}}</span>
         </div>
@@ -49,6 +51,10 @@
           <el-menu-item index="/usermessage">个人资料</el-menu-item>
           <el-menu-item index="/updatemsg">密码设置</el-menu-item>
         </el-submenu>
+        <el-menu-item @click="shouNa=!shouNa">
+          <i class="el-icon-d-arrow-right" v-if="shouNa"></i>
+          <i class="el-icon-d-arrow-left" v-else></i>
+        </el-menu-item>
       </el-menu>
     </el-col>
   </el-row>
@@ -63,23 +69,29 @@ import Vue from "vue";
 
 export default {
   name: "uCenterLeft",
-  data(){
-    return{
-      loginStatus:loginStatus
+  data() {
+    return {
+      loginStatus: loginStatus,
+      shouNa: false
+    }
+  },
+  methods:{
+    handleOpen(){
+      this.$forceUpdate();
     }
   },
   mounted() {
     this.axios.get(sys_getlogin)
-        .then(res=>{
-          if (!res.data.code){
-            this.loginStatus=res.data.data
-            Vue.prototype.$loginStatus=res.data.data
-          }
-          else{
-            this.$router.push({path:'/logreg'})
+        .then(res => {
+          if (!res.data.code) {
+            this.loginStatus = res.data.data
+            Vue.prototype.$loginStatus = res.data.data
+          } else {
+            this.$router.push({path: '/logreg'})
           }
         })
-  }
+    this.shouNa=document.documentElement.clientWidth<810
+  },
 }
 </script>
 

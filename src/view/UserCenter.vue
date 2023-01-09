@@ -4,10 +4,11 @@
 <!--      <h1>登录成功！</h1>-->
 <!--    <button type="button" class="btn btn-primary" @click="logout">退出登录</button>-->
     <el-container>
-      <el-aside width="15%" style="position:fixed;">
+      <el-aside  width="15%" style="position:fixed;">
         <u-center-left/>
       </el-aside>
-      <el-aside width="15%"/>
+      <el-aside  width="15%">
+      </el-aside>
       <el-main>
       <router-view></router-view>
       </el-main>
