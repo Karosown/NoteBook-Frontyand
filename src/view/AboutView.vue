@@ -10,6 +10,11 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/10" placement="top">
+              <el-card>
+                <h6>用户中心侧栏优化，手机访问自动收敛</h6>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/09" placement="top">
               <el-card>
                 <h6>点赞功能下架，改为收藏功能后重新上线，在个人中心新增收藏列表，进入个人中心点击我的收藏即可查看</h6>
