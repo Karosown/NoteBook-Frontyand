@@ -15,7 +15,7 @@
        <el-divider direction="vertical"></el-divider>
        <a href="http://beian.miit.gov.cn/" traget="_blank">蜀ICP备2022011626号-1</a>
        <el-divider direction="vertical"></el-divider>
-       <el-button type="text" @click="warning">GitHub</el-button>
+       <el-button type="text" @click="github">GitHub</el-button>
      </el-footer>
    </el-container>
     <el-drawer
@@ -49,8 +49,14 @@ export default {
     }
   },
   methods:{
-    warning(){
-      this.$message.error('项目目前还在开发中，暂未开源')
+    github(){
+      this.$alert("后端源码：<a href='https://www.github.com/karosown/NoteBook-Backyand'>https://www.github.com/karosown/NoteBook-Backyand</a><br>" +
+          "前端源码:<a href='http://www.github.com/karosown/NoteBook-Frontyand'>http://www.github.com/karosown/NoteBook-Frontyand</a><br>" +
+          "KaTool:<a href='http://www.github.com/karosown/KaTool'>http://www.github.com/karosown/KaTool</a><br>",
+      {
+            confirmButtonText: '确定',
+            dangerouslyUseHTMLString: true,
+      })
     },
     setInsertNote(){
       this.insertNote=true

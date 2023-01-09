@@ -33,7 +33,7 @@
             <el-menu-item index="1-3-2" disabled>给他人</el-menu-item>
           </el-submenu>
         </el-submenu>
-        <el-menu-item index="2" disabled>
+        <el-menu-item index="/myfavorite">
           <i class="el-icon-menu"></i>
           <span slot="title">我的收藏</span>
         </el-menu-item>

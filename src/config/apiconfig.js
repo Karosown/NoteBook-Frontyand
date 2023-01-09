@@ -14,6 +14,7 @@ const delete_note="/note/delete"
 //更新日记API post
 const update_notes="/note/update"
 const get_note_byid="/note/get?id="
+const get_noteslist_byfavorite="/note/list/myfavorite"
 const get_noteslist_bynotetitle="/note/list/page?sortField=createTime&noteTitle=";
 //获取某个用户笔记列表
 const get_noteslist_byuserid="/note/list/page?sortField=createTime&userId=";
@@ -41,6 +42,7 @@ const getUserById="/user/get?id=";
 const getUserNamebyID="/user/get/userName?id=";
 //获取用户头像api get
 const getUserAvatarByUserAccount="/user/get/userAvatar?useraccount=";
+const getUserAvatarById="/user/get/userAvatar?id=";
 //获取当前登录用户 get
 const sys_getlogin="/user/get/login";
 //用户注销 post
@@ -48,6 +50,7 @@ const sys_logout="/user/logout";
 export {
     do_thumb_note,
     delete_note,
+    get_noteslist_byfavorite,
     get_noteslist_bynotetitle,
     get_noteslist_byuserid,
     get_note_byid,
@@ -60,6 +63,7 @@ export {
     user_login,
     getUserNamebyID,
     getUserAvatarByUserAccount,
+    getUserAvatarById,
     img2base64_File,
     img2base64_URL,
     imgcheckcode_touch,

@@ -10,6 +10,12 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/09" placement="top">
+              <el-card>
+                <h6>点赞功能下架，改为收藏功能后重新上线，在个人中心新增收藏列表，进入个人中心点击我的收藏即可查看</h6>
+                <p>项目已开源，点击最下方的GitHub即可查看</p>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/06" placement="top">
               <el-card>
                 <h6>新增点赞功能，后端实现点赞缓存、定时任务以及分布式锁，笔记列表新增查询时骨架屏加载</h6>

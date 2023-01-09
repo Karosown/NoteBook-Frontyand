@@ -5,6 +5,7 @@ import UserCenter from "@/view/UserCenter";
 import AboutView from "@/view/AboutView";
 import uMessageshow from "@/components/usercentercomp/uMessageshow"
 import uMessageUpPassWord from "@/components/usercentercomp/uMessageUpPassWord"
+import uMyFavorite from "@/components/usercentercomp/uMyFavorite"
 import UserNotesView from "@/view/UserNotesView";
 Vue.use(VueRouter)  //Vue全局使用Router
 const router = new VueRouter({
@@ -29,6 +30,13 @@ const router = new VueRouter({
      component:uMessageshow,
      meta:{
       title:'用户中心'
+     }
+    },
+    {
+     path:'/myfavorite',
+     component:uMyFavorite,
+     meta:{
+      title: "我的收藏"
      }
     },
     {

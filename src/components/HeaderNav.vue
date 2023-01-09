@@ -91,18 +91,18 @@ export default {
       if (this.searchText!=""){
         this.axios.get(get_noteslist_bynotetitle+this.searchText)
             .then(res=>{
-              sessionStorage.setItem('isSearch',true)
+              sessionStorage.setItem('isSearchOrFavorite',true)
               this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
             })
-        this.isSearch=true;
+        this.isSearchOrFavorite=true;
       }
       else{
         this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
             .then(res=>{
-              sessionStorage.setItem('isSearch',false)
+              sessionStorage.setItem('isSearchOrFavorite',false)
               this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
             })
-        this.isSearch=false;
+        this.isSearchOrFavorite=false;
       }
     }
   },

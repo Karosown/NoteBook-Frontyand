@@ -4,8 +4,11 @@
     <div  v-for="(item,key) in list" :key="key">
     <el-card class="box-card" shadow="hover" style="margin-bottom: 5px">
       <div slot="header" class="clearfix">
-        <span style="float: left">{{item.noteTitle}}</span>
-        <el-button style="float: right; padding: 3px 0" type="text" v-if="!isSearch" @click="update=true,noteId=item.id">修改</el-button>
+        <img  v-bind:src="getUserAvatarById+item.userId" :class="'userAvatar'" :key="new Date().getTime()">
+
+        <span style="float: left;margin-top:10px;margin-left:5px">
+{{item.noteTitle}}</span>
+        <el-button style="float: right; padding: 3px 0" type="text" v-if="!isSearchOrFavorite" @click="update=true,noteId=item.id">修改</el-button>
         <span style="float: right; padding: 3px 0" type="text"  v-else>{{getUserName(item)}}{{"Author: "+item.userName}}</span>
       </div>
       <div  class="text item">
@@ -14,9 +17,9 @@
       </div>
       <div class="clearfix">
         <span style="float: left">发表日期：{{item.createTime}} </span>
-        <el-button type="text" @click="doThumb(item)">点赞：{{item.thumbNum}}
-        <b-icon-hand-thumbs-up v-if="item.hasThumb===false"></b-icon-hand-thumbs-up>
-        <b-icon-hand-thumbs-up-fill v-else></b-icon-hand-thumbs-up-fill>
+        <el-button type="text" @click="doThumb(item)">收藏量：{{item.thumbNum}}
+        <b-icon-star v-if="item.hasThumb===false"></b-icon-star>
+        <b-icon-star-fill v-else></b-icon-star-fill>
       </el-button>
       </div>
     </el-card>
@@ -34,16 +37,17 @@
 
 <script>
 import NoteShowArticle from "@/components/note/noteShowArticle";
-import {do_thumb_note, getUserNamebyID} from "@/config/apiconfig";
+import {baseAPI, do_thumb_note, getUserAvatarById, getUserNamebyID} from "@/config/apiconfig";
 import UpdateNote from "@/components/note/updateNote";
 import {thumbNoteBody} from "@/config/config";
 export default {
   name: "noteShowlistByCard",
   data() {
     return {
-      isSearch:false,
+      isSearchOrFavorite:false,
       update:false,
       noteId:null,
+      getUserAvatarById:baseAPI+getUserAvatarById,
       list:sessionStorage.getItem('notelist')
     }
   },
@@ -78,7 +82,7 @@ export default {
     //       })
       window.addEventListener('setItem',()=>{
         this.list=JSON.parse(sessionStorage.getItem('notelist'))
-        this.isSearch=JSON.parse(sessionStorage.getItem('isSearch'))
+        this.isSearchOrFavorite=JSON.parse(sessionStorage.getItem('isSearchOrFavorite'))
       })
 
     }
@@ -86,5 +90,12 @@ export default {
 </script>
 
 <style scoped>
-
+.userAvatar{
+  border:ridge 0.1px;
+  border-color: #ffffff;
+  border-radius: 100px 100px 100px 0px;
+  height: 40px; width: 40px; line-height: 40px;
+  margin: auto;
+  float: left;
+}
 </style>

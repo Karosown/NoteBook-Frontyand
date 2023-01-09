@@ -30,21 +30,21 @@ export default {
     //         .then(res=>{
     //           this.$emit('notelist',res.data.data.records)
     //         })
-    //     this.$data.isSearch=true;
+    //     this.$data.isSearchOrFavorite=true;
     //   }
     //   else{
     //     this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
     //         .then(res=>{
     //           this.$emit('notelist',res.data.data.records)
     //         })
-    //     this.$data.isSearch=false;
+    //     this.$data.isSearchOrFavorite=false;
     //   }
     // }
   },
   mounted() {
     this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
         .then(res=>{
-          sessionStorage.setItem('isSearch',false)
+          sessionStorage.setItem('isSearchOrFavorite',false)
           this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
         })
   }
