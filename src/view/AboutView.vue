@@ -10,6 +10,12 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/11" placement="top">
+              <el-card>
+                <h6>2023-1-11 前端优化，支持多端自适应（导航栏优化）</h6>
+                <p>后端SQL修改，解决定时任务持久化点赞记录而导致日记创建时间被修改的问题</p>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/10" placement="top">
               <el-card>
                 <h6>用户中心侧栏优化，手机访问自动收敛</h6>
