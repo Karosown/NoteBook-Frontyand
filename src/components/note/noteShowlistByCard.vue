@@ -1,19 +1,19 @@
 <template>
-  <!--      todo:循环-->
   <div id="noteShowlistByCard" >
     <div  v-for="(item,key) in list" :key="key">
-    <el-card class="box-card" shadow="hover" style="margin-bottom: 5px">
+      <a type="text" @click="look=true,itemFactory=item">
+      <el-card class="box-card" shadow="hover" style="margin-bottom: 5px" @click="look=true,itemFactory=item">
       <div slot="header" class="clearfix">
         <img  v-bind:src="getUserAvatarById+item.userId" :class="'userAvatar'" :key="new Date().getTime()">
-
         <span style="float: left;margin-top:10px;margin-left:5px">
 {{item.noteTitle}}</span>
-        <el-button style="float: right; padding: 3px 0" type="text" v-if="!isSearchOrFavorite" @click="update=true,noteId=item.id">修改</el-button>
+        <el-button style="float: right; padding: 3px 0" type="text" v-if="(!isSearchOrFavorite)||isAdmin" @click.stop="update=true,noteId=item.id">修改</el-button>
         <span style="float: right; padding: 3px 0" type="text"  v-else>{{getUserName(item)}}{{"Author: "+item.userName}}</span>
       </div>
       <div  class="text item">
 <!--        <note-show-article noteurl="http://7n.cdn.wzl1.top/notebook/noteFile/cb7d4a16489f0a838e7d94c0332efe8c.html?datestamp=167243851936"></note-show-article>-->
-       <note-show-article :noteurl="item.noteUrl" :now-id="item.id" :key="new Date().getTime()"></note-show-article>
+<!--       <note-show-article :noteurl="item.noteUrl" :now-id="item.id" :key="new Date().getTime()"></note-show-article>-->
+        {{item.noteIntroduction!=null?item.noteIntroduction:"主人还没有对文章进行更新哟，请点击查看（网站更新后，对原文进行一次任意修改即可出现简略文字，以后要看全文需要点击卡片进行查看）"}}
       </div>
       <div class="clearfix">
         <span style="float: left">发表日期：{{item.createTime}} </span>
@@ -23,7 +23,16 @@
       </el-button>
       </div>
     </el-card>
+      </a>
     </div>
+    <el-drawer
+        title="日记欣赏"
+        :visible.sync="look"
+        direction="ltr"
+        size="100%"
+    >
+      <note-show-article :item="itemFactory"/>
+    </el-drawer>
     <el-drawer
         title="修改日记"
         :visible.sync="update"
@@ -36,15 +45,18 @@
 </template>
 
 <script>
-import NoteShowArticle from "@/components/note/noteShowArticle";
 import {baseAPI, do_thumb_note, getUserAvatarById, getUserNamebyID} from "@/config/apiconfig";
 import UpdateNote from "@/components/note/updateNote";
 import {thumbNoteBody} from "@/config/config";
+import NoteShowArticle from "@/components/note/noteShowArticle";
 export default {
   name: "noteShowlistByCard",
   data() {
     return {
+      isAdmin:false,
+      itemFactory:null,
       isSearchOrFavorite:false,
+      look:false,
       update:false,
       noteId:null,
       getUserAvatarById:baseAPI+getUserAvatarById,
@@ -52,7 +64,7 @@ export default {
     }
   },
   // eslint-disable-next-line vue/no-unused-components
-  components: {UpdateNote, NoteShowArticle},
+  components: {NoteShowArticle, UpdateNote},
   methods: {
     handlerClose(){
 
@@ -84,7 +96,7 @@ export default {
         this.list=JSON.parse(sessionStorage.getItem('notelist'))
         this.isSearchOrFavorite=JSON.parse(sessionStorage.getItem('isSearchOrFavorite'))
       })
-
+      this.isAdmin=(JSON.parse(sessionStorage.getItem('loginStatus')).userRole=='admin')
     }
 }
 </script>

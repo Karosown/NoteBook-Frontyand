@@ -12,6 +12,12 @@
           <el-timeline>
             <el-timeline-item timestamp="2023/01/11" placement="top">
               <el-card>
+                <h6>2023-1-11 笔记数据表新增内容简介</h6>
+                <p>新增内容简介，提升用户体验，解决前端显示加载过慢的问题，站点管理员可从前端修改所有日记</p>
+              </el-card>
+            </el-timeline-item>
+            <el-timeline-item timestamp="2023/01/11" placement="top">
+              <el-card>
                 <h6>2023-1-11 前端优化，支持多端自适应（导航栏优化）</h6>
                 <p>后端SQL修改，解决定时任务持久化点赞记录而导致日记创建时间被修改的问题</p>
               </el-card>

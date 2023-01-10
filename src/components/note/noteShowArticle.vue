@@ -1,8 +1,20 @@
 <template>
 <div>
+  <el-header>
+      <el-col><h5 style="float:left;">{{this.item.noteTitle}}</h5></el-col>
+      <el-col><p style="float:left;">作者：{{userName}} 创作时间：{{item.createTime}}  更新时间：{{item.updateTime}}</p></el-col>
+  </el-header>
+  <el-main>
   <div :id="nowId">
     <el-skeleton style="text-align: left"/>
   </div>
+  </el-main>
+  <el-footer style="float: left">
+    <el-button type="text" @click="doThumb(item)">收藏量：{{item.thumbNum}}
+      <b-icon-star v-if="item.hasThumb===false"></b-icon-star>
+      <b-icon-star-fill v-else></b-icon-star-fill>
+    </el-button>
+  </el-footer>
 </div>
 </template>
 
@@ -13,18 +25,36 @@ import Prism from 'prismjs';
 import "@wangeditor/editor/dist/css/style.css"
 import 'prismjs/themes/prism.css';
 import {newstyle} from "@/components/note/EditConfig";
+import {do_thumb_note, getUserNamebyID} from "@/config/apiconfig";
+import {thumbNoteBody} from "@/config/config";
 export default {
   name: "noteShowArticle",
   props:{
-    noteurl:null,
-    nowId:null,
+    item:null,
   },
   data(){
     return{
+      nowId:this.item.id,
+    }
+  },
+  methods:{
+    doThumb(item){
+      var thumbNote=thumbNoteBody;
+      thumbNote.noteId=item.id
+      this.axios.post(do_thumb_note,thumbNote)
+          .then(res => {
+            this.$message.success(res.data.message)
+            item.hasThumb=res.data.data;
+            item.thumbNum+=((res.data.data===false)?-1:1)
+          })
     }
   },
   mounted() {
-      $('#'+this.nowId).load(this.noteurl,()=>{
+    this.axios.get(getUserNamebyID+this.item.userId)
+        .then(res=>{
+          this.userName=res.data.data
+        })
+      $('#'+this.nowId).load(this.item.noteUrl,()=>{
         Prism.highlightAll()
         $('#'+this.nowId).html($('#'+this.nowId).html()+newstyle)
       })

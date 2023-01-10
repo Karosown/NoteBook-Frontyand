@@ -12,6 +12,7 @@ export var noteBody=	{
     isPublic: null,
     noteTitle:null,
     noteUrl:null,
+    noteIntroduction:null,
     thumbNum: null,
     upDateTime:null,
     userId: null,

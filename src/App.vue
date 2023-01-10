@@ -98,24 +98,24 @@ footer a{
 #Main{
   margin: 0px;padding: 0px
 }
-@media (max-width: 1485px) {
-#Main{
-  margin-top: 50px;
-}
-}
-@media (max-width: 1027px) {
-  #Main{
-    margin-top: 53px;
-  }
-}
-@media (max-width: 482px) {
-  #Main{
-    margin-top: 90px;
-  }
-}
-@media (max-width: 279px) {
-  #Main{
-    margin-top: 120px;
-  }
-}
+/*@media (max-width: 1485px) {*/
+/*#Main{*/
+/*  margin-top: 50px;*/
+/*}*/
+/*}*/
+/*@media (max-width: 1027px) {*/
+/*  #Main{*/
+/*    margin-top: 53px;*/
+/*  }*/
+/*}*/
+/*@media (max-width: 482px) {*/
+/*  #Main{*/
+/*    margin-top: 90px;*/
+/*  }*/
+/*}*/
+/*@media (max-width: 279px) {*/
+/*  #Main{*/
+/*    margin-top: 120px;*/
+/*  }*/
+/*}*/
 </style>
