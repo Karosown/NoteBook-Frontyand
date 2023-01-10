@@ -10,10 +10,10 @@
         <el-button style="float: right; padding: 3px 0" type="text" v-if="(!isSearchOrFavorite)||isAdmin" @click.stop="update=true,noteId=item.id">修改</el-button>
         <span style="float: right; padding: 3px 0" type="text"  v-else>{{getUserName(item)}}{{"Author: "+item.userName}}</span>
       </div>
-      <div  class="text item">
+      <div  class="text item" style="float:left;" :key="new Date().getTime()">
 <!--        <note-show-article noteurl="http://7n.cdn.wzl1.top/notebook/noteFile/cb7d4a16489f0a838e7d94c0332efe8c.html?datestamp=167243851936"></note-show-article>-->
 <!--       <note-show-article :noteurl="item.noteUrl" :now-id="item.id" :key="new Date().getTime()"></note-show-article>-->
-        {{item.noteIntroduction!=null?item.noteIntroduction:"主人还没有对文章进行更新哟，请点击查看（网站更新后，对原文进行一次任意修改即可出现简略文字，以后要看全文需要点击卡片进行查看）"}}
+        {{((item.noteIntroduction!=null)&&(item.noteIntroduction!=''))?item.noteIntroduction:"主人还没有对文章进行更新哟，请点击查看（网站更新后，对原文进行一次任意修改即可出现简略文字，以后要看全文需要点击卡片进行查看）"}}
       </div>
       <div class="clearfix">
         <span style="float: left">发表日期：{{item.createTime}} </span>
@@ -31,7 +31,7 @@
         direction="ltr"
         size="100%"
     >
-      <note-show-article :item="itemFactory"/>
+      <note-show-article :item="itemFactory" :key="new Date().getTime()"/>
     </el-drawer>
     <el-drawer
         title="修改日记"
@@ -39,7 +39,7 @@
         direction="ltr"
         size="100%"
     >
-      <update-note :noteId="noteId" v-if="update"/>
+      <update-note :noteId="noteId" v-if="update" :key="new Date().getTime()"/>
     </el-drawer>
   </div>
 </template>

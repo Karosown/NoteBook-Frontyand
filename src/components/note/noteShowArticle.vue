@@ -5,7 +5,7 @@
       <el-col><p style="float:left;">作者：{{userName}} 创作时间：{{item.createTime}}  更新时间：{{item.updateTime}}</p></el-col>
   </el-header>
   <el-main>
-  <div :id="nowId">
+  <div :id="this.item.id">
     <el-skeleton style="text-align: left"/>
   </div>
   </el-main>
@@ -34,7 +34,6 @@ export default {
   },
   data(){
     return{
-      nowId:this.item.id,
     }
   },
   methods:{
@@ -54,9 +53,9 @@ export default {
         .then(res=>{
           this.userName=res.data.data
         })
-      $('#'+this.nowId).load(this.item.noteUrl,()=>{
+      $('#'+this.item.id).load(this.item.noteUrl,()=>{
         Prism.highlightAll()
-        $('#'+this.nowId).html($('#'+this.nowId).html()+newstyle)
+        $('#'+this.item.id).html($('#'+this.item.id).html()+newstyle)
       })
   }
 }
