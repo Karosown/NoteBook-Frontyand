@@ -17,7 +17,7 @@
       </div>
       <div class="clearfix" style="margin-top: 50px">
         <span style="float: left">发表日期：{{item.createTime}} </span>
-        <el-button type="text" @click="doThumb(item)">收藏量：{{item.thumbNum}}
+        <el-button type="text" @click.stop="doThumb(item)">收藏量：{{item.thumbNum}}
         <b-icon-star v-if="item.hasThumb===false"></b-icon-star>
         <b-icon-star-fill v-else></b-icon-star-fill>
       </el-button>
