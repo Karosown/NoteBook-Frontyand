@@ -16,7 +16,7 @@
             <el-input
                 placeholder="我要搜一下^_^"
                 v-model="searchText" width="40" @keyup.enter.native="search(0)">
-              <i slot="suffix" class="el-icon-search" style="border-radius: 3px;padding:10px;margin-right: -4px;font-size: 20px" @click="search(0)"></i>
+              <i slot="suffix" class="el-icon-search" @click="search(0)"></i>
             </el-input>
           </el-col>
           <el-col :span="2" style="margin-top: 10px;">
@@ -61,7 +61,7 @@
             <el-input
                 placeholder="我要搜一下^_^"
                 v-model="searchText" width="40" @keyup.enter.native="search(0)">
-              <i slot="suffix" class="el-icon-search" style="border-radius: 3px;padding:10px;margin-right: -4px;font-size: 20px" @click="search(0)"></i>
+              <i slot="suffix" class="el-icon-search" @click="search(0)"></i>
             </el-input>
           </el-col>
           <el-col :span="2" style="margin-top: 0px;margin-right: 15px;">
@@ -271,6 +271,13 @@ export default {
     .nav-endl li{
       margin: 3px -10px;
     }
+  }
+  .el-icon-search{
+   border-radius: 3px;
+    padding:8px;
+    margin-top: 2px;
+    margin-right: -2px;
+    font-size: 20px
   }
   .el-icon-search:hover{
     background-color: #f1f1f1;
