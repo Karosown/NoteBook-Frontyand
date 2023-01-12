@@ -1,6 +1,7 @@
 <template>
   <div id="noteShowlistByCard" >
-    <div  v-for="(item,key) in list" :key="key">
+    <el-empty description="暂时找不到您想要的结果哟~请您重新输入" v-if="list==null||!list.length" :key="new Date().getTime()"></el-empty>
+    <div v-else v-for="(item,key) in list" :key="key">
       <a type="text" @click="look=true,itemFactory=item">
       <el-card class="box-card" shadow="hover" style="margin-bottom: 5px" @click="look=true,itemFactory=item">
       <div slot="header" class="clearfix">

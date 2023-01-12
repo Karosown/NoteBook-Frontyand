@@ -10,6 +10,12 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/13" placement="top">
+              <el-card>
+                <h6>2023-1-13 前端新增按钮搜索，搜索图标右移</h6>
+                <p>修复在点击”我的日记“时，如果搜索框有文字会无法跳转的bug</p>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/11" placement="top">
               <el-card>
                 <h6>2023-1-11 笔记数据表新增内容简介</h6>

@@ -2,7 +2,7 @@
 <div id="HeaderNav">
   <div id="nav-pc">
     <el-menu  :default-active="activeIndex" class="el-menu-nav-header" mode="horizontal" @select="handleSelect" :router="true">
-      <el-menu-item index="/notescenter">我的日记</el-menu-item>
+      <el-menu-item index="/notescenter" @click="search(1)">我的日记</el-menu-item>
       <el-submenu index="2">
         <template slot="title">日记广场</template>
         <el-menu-item index="2-1">日记推荐</el-menu-item>
@@ -15,8 +15,8 @@
           <el-col :span="20" style="margin-top: 10px; margin-right: 3px">
             <el-input
                 placeholder="我要搜一下^_^"
-                prefix-icon="el-icon-search"
-                v-model="searchText" width="40" @keyup.enter.native="search">
+                v-model="searchText" width="40" @keyup.enter.native="search(0)">
+              <i slot="suffix" class="el-icon-search" style="border-radius: 3px;padding:10px;margin-right: -4px;font-size: 20px" @click="search(0)"></i>
             </el-input>
           </el-col>
           <el-col :span="2" style="margin-top: 10px;">
@@ -45,7 +45,7 @@
        <i class="el-icon-menu" style="font-size: 45px;color: #409EFF"></i>
           </span>
         <el-dropdown-menu slot="dropdown">
-        <el-menu-item index="/notescenter">我的日记</el-menu-item>
+        <el-menu-item index="/notescenter" @click="search(1)">我的日记</el-menu-item>
         <el-submenu index="2">
           <template slot="title">日记广场</template>
           <el-menu-item index="2-1">日记推荐</el-menu-item>
@@ -60,8 +60,8 @@
           <el-col :span="18" style="margin-top: 10px;">
             <el-input
                 placeholder="我要搜一下^_^"
-                prefix-icon="el-icon-search"
-                v-model="searchText" width="40" @keyup.enter.native="search">
+                v-model="searchText" width="40" @keyup.enter.native="search(0)">
+              <i slot="suffix" class="el-icon-search" style="border-radius: 3px;padding:10px;margin-right: -4px;font-size: 20px" @click="search(0)"></i>
             </el-input>
           </el-col>
           <el-col :span="2" style="margin-top: 0px;margin-right: 15px;">
@@ -136,10 +136,10 @@ export default {
         this.$router.push({path: '/LogReg'})
       })
     },
-    search(){
+    search(flag){
       this.$router.push('/notescenter')
       this.notelist=null
-      if (this.searchText!=""){
+      if (this.searchText!=""&&!flag){
         this.axios.get(get_noteslist_bynotetitle+this.searchText)
             .then(res=>{
               sessionStorage.setItem('isSearchOrFavorite',true)
@@ -271,5 +271,8 @@ export default {
     .nav-endl li{
       margin: 3px -10px;
     }
+  }
+  .el-icon-search:hover{
+    background-color: #f1f1f1;
   }
 </style>
