@@ -12,9 +12,10 @@
           <el-timeline>
             <el-timeline-item timestamp="2023/01/13" placement="top">
               <el-card>
-                <h6>2023-1-13 中午12:40-13:30 服务器关闭，进行OSS迁移</h6>
-                <p>将笔记、头像存储oss迁移至国内</p>
+                <h6>2023-1-13 中午12:40-13:00 服务器关闭，进行OSS迁移</h6>
+                <p>将日记、头像存储oss迁移至国内，预计16日前将日记版本回滚更新完毕，每个版本有1年的缓存，oss迁移不会影响版本问题</p>
               </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/13" placement="top">
               <el-card>
                 <h6>2023-1-13 前端新增按钮搜索，搜索图标右移</h6>
