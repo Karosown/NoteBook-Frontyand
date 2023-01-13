@@ -12,6 +12,11 @@
           <el-timeline>
             <el-timeline-item timestamp="2023/01/13" placement="top">
               <el-card>
+                <h6>2023-1-13 中午12:40-13:30 服务器关闭，进行OSS迁移</h6>
+                <p>将笔记、头像存储oss迁移至国内</p>
+              </el-card>
+            <el-timeline-item timestamp="2023/01/13" placement="top">
+              <el-card>
                 <h6>2023-1-13 前端新增按钮搜索，搜索图标右移</h6>
                 <p>修复在点击”我的日记“时，如果搜索框有文字会无法跳转的bug</p>
               </el-card>
