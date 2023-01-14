@@ -10,7 +10,7 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
-            <el-timeline-item timestamp="2023/01/13" placement="top">
+            <el-timeline-item timestamp="2023/01/14" placement="top">
               <el-card>
                 <h6>2023-1-14 新增热门日记推送</h6>
                 <p>用户不用登录就可以看到当前热门日记，但是点赞仍然要登录，预热间隔为1小时，默认页从关于界面路由到热门页面</p>
