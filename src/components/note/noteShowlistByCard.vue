@@ -37,6 +37,7 @@
     <el-drawer
         title="修改日记"
         :visible.sync="update"
+        :before-close="handlerClose"
         direction="ltr"
         size="100%"
     >
@@ -67,8 +68,10 @@ export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {NoteShowArticle, UpdateNote},
   methods: {
-    handlerClose(){
-
+    handlerClose(done){
+      sessionStorage.removeItem('isUpdateHistory');
+      sessionStorage.setItem('isUpdateHistory',false);
+      done();
     },
   doThumb(item){
     var thumbNote=thumbNoteBody;

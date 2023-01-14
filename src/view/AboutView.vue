@@ -10,6 +10,12 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/15" placement="top">
+              <el-card>
+                <h6>2023-1-15 新增笔记版本回退、回滚、旧版本查看功能，修复Hot日记会看到私密日记的Bug</h6>
+                <p>用户可以查看到所有权限能看到的日记每次更新记录，包括版本号、修改人、修改时间、所属IP等</p>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/14" placement="top">
               <el-card>
                 <h6>2023-1-14 新增热门日记推送</h6>
@@ -127,7 +133,7 @@ export default {
   },
   methods:{
     open() {
-      this.$alert('掌印日记，一个日记网站，大家可以在这里做分享，为什么做这个项目可以看我的博文<a href="https://www.wzl1.top/2022/12/2022%e5%b9%b4%e6%9c%ab%e6%80%bb%e7%bb%93/" target="_blank">2022-年末总结</a><br>后端技术栈：SpringBoot、Redis、SpringSession、MyBatis-plus、SpringDataRedis、Swagger（Knife4j）<br>前端技术栈：Vue-2.6.14、Element-UI、Bootstrap-5.2.3、axios<br>工具类：Hutool、KaTool(自己写的一个基于Spring的Starter，后面上传Github)<br>其他：WangEidtor、Prism<br>作者:<a href="https://www.wzl1.top/" target="_blank">Karos</a><br>我们期待您的加入，欢迎从博客中联系我<hr><p style="float:right">头上一片晴天，心中一个想念</p><br>', '这是一个日记网站，记录每一个人的点点滴滴', {
+      this.$alert('掌印日记，在后疫情时代，大部分群体的生活压力以及财产压力有明显的增大，并且疫情仍在继续，疫情使部分群体产生抑郁情绪，为此，我制作了这个给大家用于日常生活分享的平台，更多原因可以看我的博文<a href="https://www.wzl1.top/2022/12/2022%e5%b9%b4%e6%9c%ab%e6%80%bb%e7%bb%93/" target="_blank">2022-年末总结</a><br>后端技术栈：SpringBoot、Redis、SpringSession、MyBatis-plus、SpringDataRedis、Swagger（Knife4j）<br>前端技术栈：Vue-2.6.14、Element-UI、Bootstrap-5.2.3、axios<br>工具类：Hutool、KaTool<br>其他：WangEidtor、Prism<br>作者:<a href="https://www.wzl1.top/" target="_blank">Karos</a><br>我们期待您的加入，欢迎从博客中联系我<hr><p style="float:right">头上一片晴天，心中一个想念</p><br>', '这是一个日记网站，记录每一个人的点点滴滴', {
         confirmButtonText: '确定',
         dangerouslyUseHTMLString: true,
         callback:() => {

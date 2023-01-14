@@ -5,6 +5,16 @@ export var deleteBody={
 export var thumbNoteBody={
     noteId:null
 }
+//日记历史版本
+export var noteupdateHistory ={
+    id: null,
+    ip: null,
+    noteUrl: null,
+    updateTime: null,
+    userId: 0,
+    userAccount:null,
+    version: 0
+}
 //日记列表
 export var noteBody=	{
     createTime: null,
@@ -33,48 +43,48 @@ export var updateNoteBody={
 export var addNoteBody={
     userId: null,
     isPublic: 0,
-    noteText: "",
-    noteTitle: ""
+    noteText: null,
+    noteTitle: null
 }
 //用户资料更新 todo:个性签名
 export var userUpdateBody={
     id:null,
-    userAvatar: "",
-    userName:""
+    userAvatar: null,
+    userName:null
 }
 //用户密码更新
 export var userUpdatePassword={
     id:null,
-    userPassword: "",
-    checkPassword:"",
-    checkCode:"",
-    userMail:""
+    userPassword: null,
+    checkPassword:null,
+    checkCode:null,
+    userMail:null
 }
 //用户邮箱更新，需提前验证邮箱
 export var userUpdateMail={
     id:null,
-    checkCode: "",
-    userMail:"",
-    userNewMail:""
+    checkCode: null,
+    userMail:null,
+    userNewMail:null
 }
 //注册
 export var userRegister= {
-        checkCode: "",
-        checkPassword: "",
-        userAccount: "",
-        userAvatar: "",
-        userMail: "",
-        userPassword: ""
+        checkCode: null,
+        checkPassword: null,
+        userAccount: null,
+        userAvatar: null,
+        userMail: null,
+        userPassword: null
     }
     //登录
 export var   userlogin ={
-        userAccount: "",
-        userPassword: ""
+        userAccount: null,
+        userPassword: null
     }
 export var checkpack ={
-        checkCode:"",
+        checkCode:null,
         dateStamp:0,
-        userMail: ""
+        userMail: null
     }
 export var loginStatus={
     id:null,

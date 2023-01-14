@@ -68,7 +68,8 @@ export default {
           if (!res.data.code){
             this.$message.success(res.data.message)
             document.getElementById('save').setAttribute('disabled',true)
-            window.location.reload()
+            window.location.reload();
+            this.$router.push({path:'/mynotes'});
           }
           else {
             this.$message.error(res.data.message)

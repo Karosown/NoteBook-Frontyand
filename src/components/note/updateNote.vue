@@ -30,8 +30,12 @@
         <el-checkbox :true-label="1" :false-label="0" v-model="updateNoteBody.isPublic" style="float: left">公开</el-checkbox>
         <el-button type="primary" @click="submit">保存</el-button>
         <el-button type="danger" @click="Delete">删除</el-button>
+        <el-button type="info" @click="openHistory=true">查看历史版本</el-button>
       </el-footer>
     </el-container>
+    <el-dialog title="历史版本" :visible.sync="openHistory" :modal="false">
+      <update-history :note-id="noteId"></update-history>
+    </el-dialog>
   </div>
 </template>
 
@@ -44,23 +48,25 @@ import {delete_note, get_note_byid, update_notes} from "@/config/apiconfig";
 import {editorConfig} from "@/components/note/EditConfig";
 import { Boot } from '@wangeditor/editor'
 import markdownModule from '@wangeditor/plugin-md'
+import UpdateHistory from "@/components/note/updateHistory";
 
 Boot.registerModule(markdownModule)
 
 export default {
   name: "updateNote",
-  components: { Editor, Toolbar },
+  components: {UpdateHistory, Editor, Toolbar },
   props:{
     noteId: null
   },
   data: function () {
     return {
+      openHistory:false,
       editor: null,
       toolbarConfig: {},
       editorConfig: editorConfig,
       mode: 'default', // or 'simple'
       updateNoteBody:updateNoteBody,
-      deleteBody:deleteBody
+      deleteBody:deleteBody,
     }
   },
   methods: {
@@ -101,9 +107,9 @@ export default {
     }
   },
   mounted() {
-      this.updateNoteBody.userId=JSON.parse(sessionStorage.getItem('loginStatus')).id
+    this.updateNoteBody.userId=JSON.parse(sessionStorage.getItem('loginStatus')).id
       if(this.noteId==null)this.updateNoteBody.noteText = '<p>在这里书写您今天的日记</p>'
-      else{
+      else if (JSON.parse(sessionStorage.getItem('isUpdateHistory'))==false){
         this.axios.get(get_note_byid+this.noteId)
             .then(res => {
               this.updateNoteBody.noteTitle = res.data.data.noteTitle
@@ -114,10 +120,15 @@ export default {
               xhr.open('GET', res.data.data.noteUrl,true);
               xhr.send(null);
               xhr.onreadystatechange= ()=>{
-                this.updateNoteBody.noteText =xhr.responseText
+                sessionStorage.setItem('updateText',xhr.responseText)
+                updateNoteBody.noteText=sessionStorage.getItem('updateText')
               }
             })
       }
+
+    window.addEventListener('setItem',()=>{
+      updateNoteBody.noteText=sessionStorage.getItem('updateText')
+    })
   },
   beforeDestroy() {
     const editor = this.editor

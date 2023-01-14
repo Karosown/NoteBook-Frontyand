@@ -4,8 +4,9 @@ var api_run="http://notebook.api.wzl1.top/api"; //运行环境接口
 const api_dev="http://127.0.0.1:7529/api";      //开发环境接口
 //环境切换
 const baseAPI=process.env.NODE_ENV ==='production'?api_run:api_dev;
-
-
+//获得日记历史版本
+const getNoteHistory = "/note/getHistory?id=";
+//热点日记获取
 const hotNoteList="/note/list/hot"
 //点赞
 const do_thumb_note="/note/thumb"
@@ -38,6 +39,8 @@ const img2base64_File="/file/i2b/img";
 const img2base64_URL="/file/i2b/src?url=";
 //通过id获取用户信息 GET
 const getUserById="/user/get?id=";
+//获取用户账号
+const getUserAccountbyID="/user/get/userAccount?id=";
 //获取用户昵称
 const getUserNamebyID="/user/get/userName?id=";
 //获取用户头像api get
@@ -48,6 +51,7 @@ const sys_getlogin="/user/get/login";
 //用户注销 post
 const sys_logout="/user/logout";
 export {
+    getNoteHistory,
     hotNoteList,
     do_thumb_note,
     delete_note,
@@ -62,6 +66,7 @@ export {
     baseAPI,
     user_register,
     user_login,
+    getUserAccountbyID,
     getUserNamebyID,
     getUserAvatarByUserAccount,
     getUserAvatarById,
