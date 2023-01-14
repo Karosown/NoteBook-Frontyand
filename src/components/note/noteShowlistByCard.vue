@@ -75,9 +75,25 @@ export default {
     thumbNote.noteId=item.id
     this.axios.post(do_thumb_note,thumbNote)
         .then(res => {
-          this.$message.success(res.data.message)
-          item.hasThumb=res.data.data;
-          item.thumbNum+=((res.data.data===false)?-1:1)
+          if (!res.data.code){
+            this.$message.success(res.data.message)
+            item.hasThumb=res.data.data;
+            item.thumbNum+=((res.data.data===false)?-1:1)
+          }
+          else {
+            this.$message.error(res.data.message);
+            this.$router.push({path:'/LogReg'});
+          }
+        })
+        .catch(err=>{
+          var message = err.data.message;
+          if (message.search("未登录")!=-1){
+              this.$message.error("未登录")
+            this.$router.push({path:'/LogReg'});
+          }
+          else{
+            this.$message.info("服务器错误:"+message)
+          }
         })
   }
   ,

@@ -12,6 +12,12 @@
           <el-timeline>
             <el-timeline-item timestamp="2023/01/13" placement="top">
               <el-card>
+                <h6>2023-1-14 新增热门日记推送</h6>
+                <p>用户不用登录就可以看到当前热门日记，但是点赞仍然要登录，预热间隔为1小时</p>
+              </el-card>
+            </el-timeline-item>
+            <el-timeline-item timestamp="2023/01/13" placement="top">
+              <el-card>
                 <h6>2023-1-13 中午12:40-13:00 服务器关闭，进行OSS迁移</h6>
                 <p>将日记、头像存储oss迁移至国内，预计16日前将日记版本回滚更新完毕，每个版本有1年的缓存，oss迁移不会影响版本问题</p>
               </el-card>

@@ -43,7 +43,7 @@ export default {
               type:"success"
             })
             sessionStorage.setItem('loginStatus',JSON.stringify(res.data.data))
-            this.$router.push({path:"/notescenter"})
+            this.$router.push({path:"/mynotes"})
             window.location.reload()
           }
           else{

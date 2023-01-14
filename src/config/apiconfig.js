@@ -6,7 +6,7 @@ const api_dev="http://127.0.0.1:7529/api";      //开发环境接口
 const baseAPI=process.env.NODE_ENV ==='production'?api_run:api_dev;
 
 
-
+const hotNoteList="/note/list/hot"
 //点赞
 const do_thumb_note="/note/thumb"
 //删除日记API POST
@@ -48,6 +48,7 @@ const sys_getlogin="/user/get/login";
 //用户注销 post
 const sys_logout="/user/logout";
 export {
+    hotNoteList,
     do_thumb_note,
     delete_note,
     get_noteslist_byfavorite,

@@ -12,7 +12,7 @@
 
 <script>
 import NoteShowlistByCard from "@/components/note/noteShowlistByCard";
-import {get_noteslist_byuserid} from "@/config/apiconfig";
+import {get_noteslist_byuserid, hotNoteList} from "@/config/apiconfig";
 // import {get_noteslist_bynotetitle, get_noteslist_byuserid} from "@/config/apiconfig";
 export default {
   name: "UserNotesView",
@@ -40,6 +40,14 @@ export default {
     //     this.$data.isSearchOrFavorite=false;
     //   }
     // }
+  },
+  beforeCreate() {
+    this.axios.get(hotNoteList)
+        .then(res=>{
+          sessionStorage.setItem('isSearchOrFavorite',true)
+          this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
+        })
+    this.isSearchOrFavorite=true;
   },
   mounted() {
     this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)

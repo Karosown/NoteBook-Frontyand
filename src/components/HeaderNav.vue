@@ -2,11 +2,8 @@
 <div id="HeaderNav">
   <div id="nav-pc">
     <el-menu  :default-active="activeIndex" class="el-menu-nav-header" mode="horizontal" @select="handleSelect" :router="true">
-      <el-menu-item index="/notescenter" @click="search(1)">我的日记</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">日记广场</template>
-        <el-menu-item index="2-1">日记推荐</el-menu-item>
-      </el-submenu>
+      <el-menu-item index="/mynotes" @click="search(1)">我的日记</el-menu-item>
+      <el-menu-item index="/hotnotes" @click="hotNotes()">热门日记</el-menu-item>
       <el-menu-item index="3">树洞</el-menu-item>
       <el-menu-item index="4">给未来自己的话</el-menu-item>
       <el-menu-item index="/about" >关于我们</el-menu-item>
@@ -45,11 +42,8 @@
        <i class="el-icon-menu" style="font-size: 45px;color: #409EFF"></i>
           </span>
         <el-dropdown-menu slot="dropdown">
-        <el-menu-item index="/notescenter" @click="search(1)">我的日记</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">日记广场</template>
-          <el-menu-item index="2-1">日记推荐</el-menu-item>
-        </el-submenu>
+        <el-menu-item index="/mynotes" @click="search(1)">我的日记</el-menu-item>
+        <el-menu-item index="/hotnotes" @click="hotNotes()">热门日记</el-menu-item>
         <el-menu-item index="3">树洞</el-menu-item>
         <el-menu-item index="4">给未来自己的话</el-menu-item>
         <el-menu-item index="/about" >关于我们</el-menu-item>
@@ -88,7 +82,13 @@
 </template>
 
 <script>
-import {get_noteslist_bynotetitle, get_noteslist_byuserid, sys_getlogin, sys_logout} from "@/config/apiconfig";
+import {
+  get_noteslist_bynotetitle,
+  get_noteslist_byuserid,
+  hotNoteList,
+  sys_getlogin,
+  sys_logout
+} from "@/config/apiconfig";
 import {DEFAULTLOGO} from "@/config/config";
 import Vue from "vue";
 
@@ -136,10 +136,18 @@ export default {
         this.$router.push({path: '/LogReg'})
       })
     },
+    hotNotes(){
+      this.axios.get(hotNoteList)
+          .then(res=>{
+            sessionStorage.setItem('isSearchOrFavorite',true)
+            this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
+          })
+      this.isSearchOrFavorite=true;
+    },
     search(flag){
-      this.$router.push('/notescenter')
       this.notelist=null
       if (this.searchText!=""&&!flag){
+        this.$router.push('/notescenter')
         this.axios.get(get_noteslist_bynotetitle+this.searchText)
             .then(res=>{
               sessionStorage.setItem('isSearchOrFavorite',true)
@@ -148,6 +156,7 @@ export default {
         this.isSearchOrFavorite=true;
       }
       else{
+        this.$router.push('/mynotes')
         this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
             .then(res=>{
               sessionStorage.setItem('isSearchOrFavorite',false)
@@ -170,7 +179,6 @@ export default {
       sessionStorage.islogin='false';
     }
       })
-    this.search()
   }
 }
 </script>

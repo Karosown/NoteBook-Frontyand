@@ -13,7 +13,7 @@ const router = new VueRouter({
  routes: [              //配置路由，这里是个数组
   {   //配置默认路由
     path:'/',
-   component:AboutView,
+   component:UserNotesView,
    meta:{
      title:'掌印日记'
    }
@@ -74,7 +74,23 @@ const router = new VueRouter({
    component:UserNotesView,
    meta:{
     mustLogin:true,
+    title: '找日记'
+   }
+  },
+  {
+   path: '/mynotes',
+   component: UserNotesView,
+   meta: {
+    mustLogin: true,
     title: '我的日记'
+   }
+  },
+  {
+   path:'/hotnotes',
+   component:UserNotesView,
+   meta:{
+    // mustLogin:true,
+    title: '热门日记'
    },
   }
  ]
