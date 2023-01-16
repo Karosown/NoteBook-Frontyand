@@ -33,7 +33,7 @@
         <el-button type="info" @click="openHistory=true">查看历史版本</el-button>
       </el-footer>
     </el-container>
-    <el-dialog title="历史版本" :visible.sync="openHistory" :modal="false">
+    <el-dialog title="历史版本" :visible.sync="openHistory" :modal="false" width="50%" center="true">
       <update-history :note-id="noteId"></update-history>
     </el-dialog>
   </div>

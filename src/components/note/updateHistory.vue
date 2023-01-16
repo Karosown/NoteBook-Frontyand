@@ -1,11 +1,11 @@
 <template>
 <div id="updateHistory" >
   <el-table :data="updatelist">
-    <el-table-column property="version" label="版本号" width="150"></el-table-column>
-    <el-table-column property="userAccount" label="用户账号" width="200" :key="new Date().getTime()"></el-table-column>
-    <el-table-column property="updateTime" label="操作时间"></el-table-column>
-    <el-table-column property="ip" label="操作IP"></el-table-column>
-    <el-table-column label="操作">
+    <el-table-column property="version" label="版本号" width="75"></el-table-column>
+    <el-table-column property="userAccount" label="用户账号" width="120" :key="new Date().getTime()"></el-table-column>
+    <el-table-column property="updateTime" label="操作时间" width="151"></el-table-column>
+    <el-table-column property="ip" label="操作IP" width="120"></el-table-column>
+    <el-table-column label="操作" width="120">
       <template slot-scope="scope">
         <el-button icon="el-icon-edit"
                    type="danger"
@@ -87,5 +87,7 @@ export default {
 </script>
 
 <style scoped>
-
+#updateHistory{
+  margin-left: 17%;
+}
 </style>

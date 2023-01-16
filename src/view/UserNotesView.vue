@@ -12,7 +12,7 @@
 
 <script>
 import NoteShowlistByCard from "@/components/note/noteShowlistByCard";
-import {get_noteslist_byuserid, hotNoteList} from "@/config/apiconfig";
+import {hotNoteList} from "@/config/apiconfig";
 // import {get_noteslist_bynotetitle, get_noteslist_byuserid} from "@/config/apiconfig";
 export default {
   name: "UserNotesView",
@@ -23,23 +23,7 @@ export default {
     }
   },
   methods:{
-    // search(){
-    //   this.$emit('notelist',null)
-    //   if (this.searchText!=""){
-    //     this.axios.get(get_noteslist_bynotetitle+this.searchText)
-    //         .then(res=>{
-    //           this.$emit('notelist',res.data.data.records)
-    //         })
-    //     this.$data.isSearchOrFavorite=true;
-    //   }
-    //   else{
-    //     this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
-    //         .then(res=>{
-    //           this.$emit('notelist',res.data.data.records)
-    //         })
-    //     this.$data.isSearchOrFavorite=false;
-    //   }
-    // }
+
   },
   beforeCreate() {
     this.axios.get(hotNoteList)
@@ -47,14 +31,13 @@ export default {
           sessionStorage.setItem('isSearchOrFavorite',true)
           this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
         })
-    this.isSearchOrFavorite=true;
   },
   mounted() {
-    this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
-        .then(res=>{
-          sessionStorage.setItem('isSearchOrFavorite',false)
-          this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
-        })
+    // this.axios.get(get_noteslist_byuserid+JSON.parse(sessionStorage.getItem('loginStatus')).id)
+    //     .then(res=>{
+    //       sessionStorage.setItem('isSearchOrFavorite',false)
+    //       this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
+    //     })
   }
 }
 </script>

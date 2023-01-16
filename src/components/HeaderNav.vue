@@ -116,6 +116,7 @@ export default {
                 console.log(this.loginStatus);
               }
               else{
+                sessionStorage.removeItem('loginStatus')
                 this.loginStatus=null
               }
             })
@@ -142,10 +143,8 @@ export default {
             sessionStorage.setItem('isSearchOrFavorite',true)
             this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
           })
-      this.isSearchOrFavorite=true;
     },
     search(flag){
-      this.notelist=null
       if (this.searchText!=""&&!flag){
         this.$router.push('/notescenter')
         this.axios.get(get_noteslist_bynotetitle+this.searchText)
@@ -153,7 +152,6 @@ export default {
               sessionStorage.setItem('isSearchOrFavorite',true)
               this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
             })
-        this.isSearchOrFavorite=true;
       }
       else{
         this.$router.push('/mynotes')
@@ -162,7 +160,6 @@ export default {
               sessionStorage.setItem('isSearchOrFavorite',false)
               this.resetSetItem('notelist',JSON.stringify(res.data.data.records));
             })
-        this.isSearchOrFavorite=false;
       }
     }
   },

@@ -10,6 +10,16 @@
       <el-col :span="24">
         <div class="block">
           <el-timeline>
+            <el-timeline-item timestamp="2023/01/16" placement="top">
+              <el-card>
+                <h6>2023-1-16 10:22 修复Hot界面跳转出错问题，优化渲染速度</h6>
+              </el-card>
+            </el-timeline-item>
+            <el-timeline-item timestamp="2023/01/16" placement="top">
+              <el-card>
+                <h6>2023-1-16 修复用户修改日记时需要重新打开才显示文章和标题的BUG</h6>
+              </el-card>
+            </el-timeline-item>
             <el-timeline-item timestamp="2023/01/15" placement="top">
               <el-card>
                 <h6>2023-1-15 新增笔记版本回退、回滚、旧版本查看功能，修复Hot日记会看到私密日记的Bug</h6>
