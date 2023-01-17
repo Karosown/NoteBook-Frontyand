@@ -12,7 +12,7 @@
 
 <script>
 import NoteShowlistByCard from "@/components/note/noteShowlistByCard";
-import {hotNoteList} from "@/config/apiconfig";
+import {hotNoteList} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 // import {get_noteslist_bynotetitle, get_noteslist_byuserid} from "@/config/apiconfig";
 export default {
   name: "UserNotesView",

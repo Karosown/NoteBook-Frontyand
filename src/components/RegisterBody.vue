@@ -46,8 +46,9 @@ import axios from "axios";
 // import {checkpack, userRegister} from "@/config";
 // import $axios from "core-js/internals/queue";
 import {BASE64HEADER, checkpack, DEFAULTLOGO} from "@/config/config";
-// eslint-disable-next-line no-unused-vars
-import {checkcode_send, imgcheckcode_touch, img2base64_File, img2base64_URL, baseAPI} from "@/config/apiconfig";
+import {img2base64_File} from "@/config/ApiConfig/fileApiConfig/fileApiConfig";
+import {checkcode_send, imgcheckcode_touch} from "@/config/ApiConfig/fileApiConfig/checkcodeApiConfig";
+import {baseAPI} from "@/config/apiconfig";
 export default {
   name: "RegisterBody",
   data() {

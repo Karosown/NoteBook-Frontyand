@@ -13,7 +13,8 @@
 <script>
 
 import {BASE64HEADER, DEFAULTLOGO} from "@/config/config";
-import {baseAPI, getUserAvatarByUserAccount} from "@/config/apiconfig";
+import {baseAPI} from "@/config/apiconfig";
+import {getUserAvatarByUserAccount} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 
 export default {
   name: "LoginBody",

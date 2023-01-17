@@ -18,8 +18,9 @@
 </template>
 
 <script>
-import {getNoteHistory, getUserAccountbyID} from "@/config/apiconfig";
 import {noteupdateHistory} from "@/config/config";
+import {getNoteHistory} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
+import {getUserAccountbyID} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 
 export default {
   name: "updateHistory",

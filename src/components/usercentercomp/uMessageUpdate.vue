@@ -30,9 +30,11 @@
 </template>
 
 <script>
-import {baseAPI, img2base64_File, user_update_message} from "@/config/apiconfig";
+import {baseAPI} from "@/config/apiconfig";
 import {userUpdateBody} from "@/config/config";
 import Vue from "vue";
+import {img2base64_File} from "@/config/ApiConfig/fileApiConfig/fileApiConfig";
+import {user_update_message} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 
 export default {
   name: "uMessageUpdate",

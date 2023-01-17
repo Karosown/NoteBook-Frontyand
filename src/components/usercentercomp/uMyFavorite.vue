@@ -4,7 +4,7 @@
 
 <script>
 import NoteShowlistByCard from "@/components/note/noteShowlistByCard";
-import {get_noteslist_byfavorite} from "@/config/apiconfig";
+import {get_noteslist_byfavorite} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 export default {
   name: "uMyFavorite",
   components: {NoteShowlistByCard},

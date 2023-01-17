@@ -47,10 +47,12 @@
 </template>
 
 <script>
-import {baseAPI, do_thumb_note, getUserAvatarById, getUserNamebyID} from "@/config/apiconfig";
 import UpdateNote from "@/components/note/updateNote";
 import {thumbNoteBody} from "@/config/config";
 import NoteShowArticle from "@/components/note/noteShowArticle";
+import {do_thumb_note} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
+import {getUserAvatarById, getUserNamebyID} from "@/config/ApiConfig/userApiConfig/userApiConfig";
+import {baseAPI} from "@/config/apiconfig";
 export default {
   name: "noteShowlistByCard",
   data() {

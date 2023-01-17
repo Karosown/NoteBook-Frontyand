@@ -38,10 +38,10 @@
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import "@wangeditor/editor/dist/css/style.css"
 import {addNoteBody} from "@/config/config";
-import {add_notes} from "@/config/apiconfig";
 import {editorConfig} from "@/components/note/EditConfig";
 import { Boot } from '@wangeditor/editor'
 import markdownModule from '@wangeditor/plugin-md'
+import {add_notes} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 
 Boot.registerModule(markdownModule)
 

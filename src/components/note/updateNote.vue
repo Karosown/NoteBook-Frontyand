@@ -44,11 +44,11 @@
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import "@wangeditor/editor/dist/css/style.css"
 import {deleteBody, updateNoteBody} from "@/config/config";
-import {delete_note, get_note_byid, update_notes} from "@/config/apiconfig";
 import {editorConfig} from "@/components/note/EditConfig";
 import { Boot } from '@wangeditor/editor'
 import markdownModule from '@wangeditor/plugin-md'
 import UpdateHistory from "@/components/note/updateHistory";
+import {delete_note, update_notes} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 
 Boot.registerModule(markdownModule)
 

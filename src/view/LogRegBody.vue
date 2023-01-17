@@ -11,7 +11,7 @@
 import LoginBody from "@/components/LoginBody";
 import RegisterBody from "@/components/RegisterBody";
 import {userlogin, userRegister} from "@/config/config";
-import {user_login, user_register} from "@/config/apiconfig";
+import {sys_login, user_register} from "@/config/apiconfig";
 
 export default {
   name: "LogRegBody",
@@ -36,7 +36,7 @@ export default {
       else{
         userlogin.userAccount=this.$refs.loginn.userAccount;
         userlogin.userPassword=this.$refs.loginn.userPassword;
-        this.axios.post(user_login,userlogin).then(res => {
+        this.axios.post(sys_login,userlogin).then(res => {
           if (!res.data.code){
             this.$message({
               message:"登录成功",

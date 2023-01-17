@@ -21,9 +21,11 @@
 // import Vue from "vue";
 
 import {checkpack, userUpdatePassword} from "@/config/config";
-import {baseAPI, checkcode_send, imgcheckcode_touch, user_update_password} from "@/config/apiconfig";
+import {baseAPI} from "@/config/apiconfig";
 import axios from "axios";
 import Vue from "vue";
+import {checkcode_send, imgcheckcode_touch} from "@/config/ApiConfig/fileApiConfig/checkcodeApiConfig";
+import {user_update_password} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 
 export default {
   name: "uMessageUpPassWord",

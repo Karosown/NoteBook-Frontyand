@@ -83,14 +83,16 @@
 
 <script>
 import {
-  get_noteslist_bynotetitle,
-  get_noteslist_byuserid,
-  hotNoteList,
   sys_getlogin,
   sys_logout
 } from "@/config/apiconfig";
 import {DEFAULTLOGO} from "@/config/config";
 import Vue from "vue";
+import {
+  get_noteslist_bynotetitle,
+  get_noteslist_byuserid,
+  hotNoteList
+} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 
 export default {
   name: "HeaderNav",

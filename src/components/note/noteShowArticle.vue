@@ -25,8 +25,9 @@ import Prism from 'prismjs';
 import "@wangeditor/editor/dist/css/style.css"
 import 'prismjs/themes/prism.css';
 import {newstyle} from "@/components/note/EditConfig";
-import {do_thumb_note, getUserNamebyID} from "@/config/apiconfig";
 import {thumbNoteBody} from "@/config/config";
+import {do_thumb_note} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
+import {getUserNamebyID} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 export default {
   name: "noteShowArticle",
   props:{
