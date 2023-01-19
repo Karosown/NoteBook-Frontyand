@@ -48,7 +48,7 @@ import {editorConfig} from "@/components/note/EditConfig";
 import { Boot } from '@wangeditor/editor'
 import markdownModule from '@wangeditor/plugin-md'
 import UpdateHistory from "@/components/note/updateHistory";
-import {delete_note, update_notes} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
+import {delete_note, get_note_byid, update_notes} from "@/config/ApiConfig/noteApiConfig/noteApiConfig";
 
 Boot.registerModule(markdownModule)
 

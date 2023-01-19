@@ -1,5 +1,5 @@
 //通过id获取用户信息 GET
-const base=base+"";
+const base='/user';
 const getUserById=base+"/get?id=";
 //获取用户账号
 const getUserAccountbyID=base+"/get/userAccount?id=";

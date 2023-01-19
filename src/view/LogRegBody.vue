@@ -11,7 +11,8 @@
 import LoginBody from "@/components/LoginBody";
 import RegisterBody from "@/components/RegisterBody";
 import {userlogin, userRegister} from "@/config/config";
-import {sys_login, user_register} from "@/config/apiconfig";
+import {sys_login} from "@/config/apiconfig";
+import {user_register} from "@/config/ApiConfig/userApiConfig/userApiConfig";
 
 export default {
   name: "LogRegBody",
