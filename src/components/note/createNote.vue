@@ -62,8 +62,8 @@ export default {
       this.editor = Object.seal(editor) // 一定要用 Object.seal() ，否则会报错
       this.editor.getConfig();
     },
-  submit(){
-    this.axios.post(add_notes,addNoteBody)
+    submit(){
+      this.axios.post(add_notes,addNoteBody)
         .then(res=>{
           if (!res.data.code){
             this.$message.success(res.data.message)
