@@ -127,7 +127,7 @@ export default {
       }
 
     window.addEventListener('setItem',()=>{
-      updateNoteBody.noteText=sessionStorage.getItem('updateText')
+      this.updateNoteBody.noteText=sessionStorage.getItem('updateText')
     })
   },
   beforeDestroy() {

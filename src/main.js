@@ -32,7 +32,6 @@ Vue.prototype.resetSetItem = function (key, newVal) {
         default:
             break
     }
-
 }
 
 
